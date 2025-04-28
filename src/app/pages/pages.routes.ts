@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
-import { Crud } from "./crud/crud";
+import { UserComponent } from "./users/user.component";
 
 export default [
-  { path: "crud", component: Crud }, 
+  { path: "users", component: UserComponent }, 
 ] as Routes;

@@ -3,8 +3,8 @@ import { MenuItem } from "primeng/api";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { StyleClassModule } from "primeng/styleclass";
-import { AppConfigurator } from "../app.configurator";
 import { LayoutService } from "../layout.service";
+import { AppConfigurator } from "../theme/theme.component";
 
 @Component({
   selector: "app-topbar",
@@ -15,7 +15,7 @@ import { LayoutService } from "../layout.service";
 export class AppTopbar {
   items!: MenuItem[];
 
-  constructor(public layoutService: LayoutService) {}
+  constructor(public layoutService: LayoutService) { }
 
   toggleDarkMode() {
     this.layoutService.layoutConfig.update((state) => ({

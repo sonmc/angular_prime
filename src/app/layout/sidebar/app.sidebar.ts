@@ -1,5 +1,5 @@
 import { Component, ElementRef } from "@angular/core";
-import { AppMenu } from "../app.menu";
+import { AppMenu } from "../menu/menu.component";
 
 @Component({
   selector: "app-sidebar",
@@ -10,5 +10,5 @@ import { AppMenu } from "../app.menu";
   </div>`,
 })
 export class AppSidebar {
-  constructor(public el: ElementRef) {}
+  constructor(public el: ElementRef) { }
 }
