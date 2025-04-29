@@ -1,24 +1,8 @@
 import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Table, TableModule } from 'primeng/table';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
-import { ToastModule } from 'primeng/toast';
-import { ToolbarModule } from 'primeng/toolbar';
-import { RatingModule } from 'primeng/rating';
-import { InputTextModule } from 'primeng/inputtext';
-import { TextareaModule } from 'primeng/textarea';
-import { SelectModule } from 'primeng/select';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { DialogModule } from 'primeng/dialog';
-import { TagModule } from 'primeng/tag';
-import { InputIconModule } from 'primeng/inputicon';
-import { IconFieldModule } from 'primeng/iconfield';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { Table } from 'primeng/table'
 import { Product, ProductService } from '../../shared/services/product.service';
+import { CORE_MODULES, FORM_MODULES, DATA_DISPLAY_MODULES, DIALOG_MODULES, LAYOUT_MODULES } from '../../shared/shared-imports';
 
 interface Column {
     field: string;
@@ -32,30 +16,11 @@ interface ExportColumn {
 }
 
 @Component({
-    selector: 'app-crud',
+    selector: 'app-users',
     standalone: true,
-    imports: [
-        CommonModule,
-        TableModule,
-        FormsModule,
-        ButtonModule,
-        RippleModule,
-        ToastModule,
-        ToolbarModule,
-        RatingModule,
-        InputTextModule,
-        TextareaModule,
-        SelectModule,
-        RadioButtonModule,
-        InputNumberModule,
-        DialogModule,
-        TagModule,
-        InputIconModule,
-        IconFieldModule,
-        ConfirmDialogModule
-    ],
+    imports: [...CORE_MODULES, ...FORM_MODULES, ...DATA_DISPLAY_MODULES, ...DIALOG_MODULES, ...LAYOUT_MODULES],
     templateUrl: './user.component.html',
-    providers: [MessageService, ProductService, ConfirmationService]
+    providers: [MessageService, ConfirmationService, ProductService]
 })
 export class UserComponent implements OnInit {
     productDialog: boolean = false;
