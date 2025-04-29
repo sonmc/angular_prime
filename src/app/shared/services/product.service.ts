@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-interface InventoryStatus {
-    label: string;
-    value: string;
-}
 
 export interface Product {
     id?: string;
@@ -1255,7 +1251,7 @@ export class ProductService {
         'Yoga Set'
     ];
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     getProductsMini() {
         return Promise.resolve(this.getProductsData().slice(0, 5));

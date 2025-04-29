@@ -12,7 +12,7 @@ import { filter } from "rxjs/operators";
 import { CommonModule } from "@angular/common";
 import { RippleModule } from "primeng/ripple";
 import { MenuItem } from "primeng/api";
-import { LayoutService } from "./layout.service";
+import { LayoutService } from "../../shared/services/layout.service";
 
 @Component({
   selector: "[app-menuitem]",
@@ -131,16 +131,13 @@ export class AppMenuitem {
 
   constructor(
     public router: Router,
-    private layoutService: LayoutService
+    private readonly layoutService: LayoutService
   ) {
     this.menuSourceSubscription = this.layoutService.menuSource$.subscribe(
       (value) => {
         Promise.resolve(null).then(() => {
           if (value.routeEvent) {
-            this.active =
-              value.key === this.key || value.key.startsWith(this.key + "-")
-                ? true
-                : false;
+            this.active = value.key === this.key || value.key.startsWith(this.key + "-");
           } else {
             if (
               value.key !== this.key &&
@@ -212,7 +209,10 @@ export class AppMenuitem {
   }
 
   get submenuAnimation() {
-    return this.root ? "expanded" : this.active ? "expanded" : "collapsed";
+    if (this.root) {
+      return "expanded";
+    }
+    return this.active ? "expanded" : "collapsed";
   }
 
   @HostBinding("class.active-menuitem")

@@ -5,23 +5,13 @@ import { filter, Subscription } from "rxjs";
 import { AppTopbar } from "./topbar/topbar.component";
 import { AppSidebar } from "./sidebar/app.sidebar";
 import { AppFooter } from "./footer/app.footer";
-import { LayoutService } from "./layout.service";
+import { LayoutService } from "../shared/services/layout.service";
 
 @Component({
   selector: "app-layout",
   standalone: true,
   imports: [CommonModule, AppTopbar, AppSidebar, RouterModule, AppFooter],
-  template: `<div class="layout-wrapper" [ngClass]="containerClass">
-    <app-topbar></app-topbar>
-    <app-sidebar></app-sidebar>
-    <div class="layout-main-container">
-      <div class="layout-main">
-        <router-outlet></router-outlet>
-      </div>
-      <app-footer></app-footer>
-    </div>
-    <div class="layout-mask animate-fadein"></div>
-  </div> `,
+  templateUrl: "./app-layout.component.html",
 })
 export class AppLayout {
   overlayMenuOpenSubscription: Subscription;
