@@ -1,5 +1,11 @@
 import { Component } from "@angular/core";
-import { CORE_MODULES, FORM_MODULES, DATA_DISPLAY_MODULES, DIALOG_MODULES, LAYOUT_MODULES } from "../../shared/shared-imports";
+import {
+  CORE_MODULES,
+  FORM_MODULES,
+  DATA_DISPLAY_MODULES,
+  DIALOG_MODULES,
+  LAYOUT_MODULES,
+} from "../../shared/shared-imports";
 
 @Component({
   selector: "app-login",
@@ -9,7 +15,7 @@ import { CORE_MODULES, FORM_MODULES, DATA_DISPLAY_MODULES, DIALOG_MODULES, LAYOU
     ...FORM_MODULES,
     ...DATA_DISPLAY_MODULES,
     ...DIALOG_MODULES,
-    ...LAYOUT_MODULES
+    ...LAYOUT_MODULES,
   ],
   templateUrl: "./login.component.html",
 })
